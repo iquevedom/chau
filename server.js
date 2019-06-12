@@ -76,7 +76,8 @@ app.get("/scrape", function(req, res) {
     });
 
     // Send a message to the client
-    res.send("Scrape Complete");
+    /* res.send("Scrape Complete"); */
+    res.redirect("/");
   });
 });
 
@@ -130,6 +131,12 @@ app.post("/articles/:id", function(req, res) {
     });
 });
 
+app.delete("/delete", function(req, res) {
+  db.Article.destroy({})
+  .then(function() {
+    res.redirect("/");
+  });
+});
 
 // Start the server
 app.listen(PORT, function() {
