@@ -42,9 +42,19 @@ require("./routes/post-api-routes.js")(app); */
 
 
 // Connect to the Mongo DB
-mongoose.connect("mongodb://localhost/scrapDB", { useNewUrlParser: true });
+/* mongoose.connect("mongodb://localhost/scrapDB", { useNewUrlParser: true }); */
+
+// If deployed, use the deployed database. Otherwise use the local mongoHeadlines database
+var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/scrapDB";
+
+mongoose.connect(MONGODB_URI, { useNewUrlParser: true });
 
 // Routes
+
+// Simple index route
+app.get("/", function(req, res) {
+  res.sendFile(path.join(__dirname + "./public/index.html"));
+});
 
 // A GET route for scraping the echoJS website
 app.get("/scrape", function(req, res) {
@@ -131,8 +141,8 @@ app.post("/articles/:id", function(req, res) {
     });
 });
 
-app.delete("/delete", function(req, res) {
-  db.Article.destroy({})
+app.post("/delete", function(req, res) {
+  db.Article.remove({})
   .then(function() {
     res.redirect("/");
   });

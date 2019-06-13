@@ -11,3 +11,25 @@ The app scrape and display the following information for each article:
      * Image about the article
 
      * URL - the url to the original article
+
+
+![](/public/assets/img/scrap.gif)
+
+ ## Technologies used to build the app
+
+   - [Node.js,](https://nodejs.org/en/)
+   - Node Packages :
+     - express,
+     - mongoose,
+     - express-handlebars,
+     - cheerio,
+     - axios.
+
+
+## Deployment
+
+https://radiant-falls-17293.herokuapp.com/
+
+## Author
+
+[Isidro Quevedo](https://iquevedom.github.io/My_Bio/)
