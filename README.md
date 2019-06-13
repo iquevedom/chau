@@ -28,7 +28,7 @@ The app scrape and display the following information for each article:
 
 ## Deployment
 
-https://radiant-falls-17293.herokuapp.com/
+https://floating-peak-21160.herokuapp.com/
 
 ## Author
 
