@@ -14,6 +14,11 @@ var mongoose = require("mongoose");
 var axios = require("axios");
 var cheerio = require("cheerio");
 
+var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/scrapDB";
+
+mongoose.connect(MONGODB_URI, { useNewUrlParser: true });
+
+
 // Require all models
 var db = require("./models");
 
@@ -45,9 +50,6 @@ require("./routes/post-api-routes.js")(app); */
 /* mongoose.connect("mongodb://localhost/scrapDB", { useNewUrlParser: true }); */
 
 // If deployed, use the deployed database. Otherwise use the local mongoHeadlines database
-var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/scrapDB";
-
-mongoose.connect(MONGODB_URI, { useNewUrlParser: true });
 
 // Routes
 
